@@ -9,9 +9,9 @@ namespace Project.Core.Services
 {
     public interface IOrderService
     {
-        public List<Order> GetAllOrder();
+        public IEnumerable<Order> GetAllOrder();
 
-        public Order GetOrder(Order order);
+        public Order GetOrderById(int id);
 
         public Order PostOrder(Order order);
 

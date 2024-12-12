@@ -9,14 +9,14 @@ namespace Project.Core.Services
 {
     public interface ICustomerService
     {
-        public List<Customer> GetAllCustomer();
+        public IEnumerable<Customer> GetAllCustomer();
 
-        public Customer GetCustomer(int id);
+        public Customer GetCustomerById(int id);
 
         public Customer PostCustomer(Customer customer);
 
-        public Customer PutCostumer(int id, Customer customer);
+        public Customer PutCustomer(int id, Customer customer);
 
-        public void DeleteCostumer(int id);
+        public void DeleteCustomer(int id);
     }
 }

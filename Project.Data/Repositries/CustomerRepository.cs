@@ -17,37 +17,42 @@ namespace Project.Data.Repositries
         {
             _context = context;
         }
-        public List<Customer> GetAll()
+
+        public IEnumerable<Customer> GetAll()
         {
-            return _context.Customers.Tolist();
+            return _context.Customers;
         }
-        public Customer Get(int id)
+
+        public Customer GetById(int id)
         {
-            var index = _context.Customers.FindIndex(c => c.CustomerId == id);
-            return _context.Customers.Tolist()[index];
+            var index = _context.Customers.ToList().FindIndex(c => c.CustomerId == id);
+            return _context.Customers.ToList()[index];
         }
+
         public Customer Post(Customer customer)
         {
             customer.CustomerId = counter++;
-            _context.customers.Add(customer);
+            _context.Customers.ToList().Add(customer);
+            _context.SaveChanges();
             return customer;
         }
 
-
         public Customer Put(int id, Customer customer)
         {
-            int index = _context.Customers.ToList().FindIndex(c => c.Id == id);
+            int index = _context.Customers.ToList().FindIndex(c => c.CustomerId == id);
             _context.Customers.ToList()[index].CustomerName = customer.CustomerName;
             _context.Customers.ToList()[index].Address = customer.Address;
             _context.Customers.ToList()[index].City = customer.City;
             _context.Customers.ToList()[index].Email = customer.Email;
+            _context.SaveChanges();
             return _context.Customers.ToList()[index];
         }
 
         public void Delete(int id)
         {
-            var index = _context.Customers.ToList().FindIndex(c => c.Id == id);
-            _context.Customers.ToList().RemoveAt(index);
+            var index = _context.Customers.ToList().FindIndex(c => c.CustomerId == id);
+            _context.Customers.ToList().Remove(_context.Customers.ToList()[index]);
+            _context.SaveChanges();
         }
     }
 }

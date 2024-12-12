@@ -23,7 +23,9 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ICustomeRepository, CustomerRepository>();
 
-builder.Services.AddSingleton<DataContext>();
+//builder.Services.AddSingleton<DataContext>();
+
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 

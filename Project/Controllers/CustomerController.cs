@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Project.Core.Model;
 using Project.Core.Services;
 using Project.Data;
+using Project.Service;
 using System.Diagnostics.Metrics;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -28,9 +29,9 @@ namespace Project.Controllers
 
         // GET api/<CustomerController>/5
         [HttpGet("{id}")]
-        public Customer Get(int id)
+        public Customer GetById(int id)
         {
-            return _CustomerServise.Get(id);
+            return _CustomerServise.GetCustomerById(id);
         }
 
         // POST api/<CustomerController>

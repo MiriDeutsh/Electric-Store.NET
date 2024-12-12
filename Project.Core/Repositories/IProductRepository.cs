@@ -9,9 +9,9 @@ namespace Project.Core.Repositories
 {
     public interface IProductRepository
     {
-        public List<Product> GetAll();
+        public IEnumerable<Product> GetAll();
 
-        public Product Get(int id);
+        public Product GetById(int id);
 
         public Product Post(Product value);
 

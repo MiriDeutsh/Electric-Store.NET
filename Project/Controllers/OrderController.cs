@@ -24,9 +24,9 @@ namespace Project.Controllers
 
         // GET api/<OrderController>/5
         [HttpGet("{id}")]
-        public Order Get(int id)
+        public Order GetById(int id)
         {
-            return _OrderServise.GetOrder(id);
+            return _OrderServise.GetOrderById(id);
         }
 
         // POST api/<OrderController>

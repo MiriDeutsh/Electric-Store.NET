@@ -25,16 +25,16 @@ namespace Project.Controllers
 
         // GET api/<ProductController>/5
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public Product GetById(int id)
         {
-            return _ProductServise.GetProduct(id);
+            return _ProductServise.GetProductById(id);
         }
 
         // POST api/<ProductController>
         [HttpPost]
         public Product Post([FromBody] Product value)
         {
-            _ProductServise.PostProducts(value);
+            _ProductServise.PostProduct(value);
             return value;
         }
 
@@ -42,14 +42,14 @@ namespace Project.Controllers
         [HttpPut("{id}")]
         public Product Put(int id, [FromBody] Product value)
         {
-            return _ProductServise.PutProduct(id,index);
+            return _ProductServise.PutProduct(id, value);
         }
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _ProductServise.DeleteProducts(id);
+            _ProductServise.DeleteProduct(id);
         }
 
     }

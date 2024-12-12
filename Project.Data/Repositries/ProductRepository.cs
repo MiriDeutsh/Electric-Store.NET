@@ -18,29 +18,31 @@ namespace Project.Data.Repositries
         {
             _context = context;
         }
-        public List<Product> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Products;
         }
-        public Product Get(int id)
+        public Product GetById(int id)
         {
-            var index = _context.Products.FindIndex(p => p.ProductId == id);
-            return _context.Products.Tolist()[index];
+            var index = _context.Products.ToList().FindIndex(p => p.ProductId == id);
+            return _context.Products.ToList()[index];
         }
 
         public Product Post(Product product)
         {
             product.ProductId = counter++;
-            _context.Products.Add(product);
+            _context.Products.ToList().Add(product);
+            _context.SaveChanges();
             return product;
         }
 
         public Product Put(int id, Product product)
         {
             int index = _context.Products.ToList().FindIndex(p => p.ProductId == id);
-            _context.Products.ToList()[index].ProductName = value.ProductName;
-            _context.Products.ToList()[index].Price = value.Price;
-            _context.Products.ToList()[index].Availability = value.Availability;
+            _context.Products.ToList()[index].ProductName = product.ProductName;
+            _context.Products.ToList()[index].Price = product.Price;
+            _context.Products.ToList()[index].Availability = product.Availability;
+            _context.SaveChanges();
             return _context.Products.ToList()[index];
         }
 
@@ -48,6 +50,7 @@ namespace Project.Data.Repositries
         {
             int index = _context.Products.ToList().FindIndex(p => p.ProductId == id);
             _context.Products.ToList().Remove(_context.Products.ToList()[index]);
+            _context.SaveChanges();
         }
     }
 }

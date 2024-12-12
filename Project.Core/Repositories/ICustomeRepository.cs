@@ -9,13 +9,13 @@ namespace Project.Core.Repositories
 {
     public interface ICustomeRepository
     {
-        public List<Customer> GetAll();
+        public IEnumerable<Customer> GetAll();
 
-        public Customer Get(int id);
+        public Customer GetById(int id);
 
-        public Customer post(Customer value);
+        public Customer Post(Customer value);
 
-        public Client Put(int id, Customer value);
+        public Customer Put(int id, Customer value);
 
         public void Delete(int id);
     }

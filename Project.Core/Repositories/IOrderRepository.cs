@@ -9,9 +9,9 @@ namespace Project.Core.Repositories
 {
     public interface IOrderRepository
     {
-        public List<Order> GetAll();
+        public IEnumerable<Order> GetAll();
 
-        public Order Get(int id);
+        public Order GetById(int id);
 
         public Order Post(Order value);
 

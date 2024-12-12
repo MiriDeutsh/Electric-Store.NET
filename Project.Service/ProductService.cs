@@ -1,6 +1,5 @@
 ﻿using Project.Core.Model;
 using Project.Core.Repositories;
-
 using Project.Core.Services;
 using System;
 using System.Collections.Generic;
@@ -17,14 +16,14 @@ namespace Project.Service
         {
             _ProductRepository = ProductRepository;
         }
-        public List<Product> GetAllProduct()
+        public IEnumerable<Product> GetAllProduct()
         {
             return _ProductRepository.GetAll();
 
         }
-        public Product GetProduct(int id)
+        public Product GetProductById(int id)
         {
-            return _ProductRepository.Get(id);
+            return _ProductRepository.GetById(id);
         }
         public Product PostProduct(Product product)
         {
@@ -34,7 +33,7 @@ namespace Project.Service
         {
             return _ProductRepository.Put(id, product);
         }
-        public void DeleteOrder(int id)
+        public void DeleteProduct(int id)
         {
             _ProductRepository.Delete(id);
         }

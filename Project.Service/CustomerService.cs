@@ -16,14 +16,14 @@ namespace Project.Service
         {
             _CustomerRepository = customerRepository;
         }
-        public List<Customer> GetAllCustomer()
+        public IEnumerable <Customer> GetAllCustomer()
         {
             return _CustomerRepository.GetAll();
 
         }
-        public Customer GetCustomer(int id)
+        public Customer GetCustomerById(int id)
         {
-            return _CustomerRepository.Get(id);
+            return _CustomerRepository.GetById(id);
         }
         public Customer PostCustomer(Customer customer)
         {

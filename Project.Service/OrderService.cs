@@ -17,22 +17,22 @@ namespace Project.Service
         {
             _OrderRepository = OrderRepository;
         }
-        public List<Order> GetAllOrder()
+        public IEnumerable<Order> GetAllOrder()
         {
             return _OrderRepository.GetAll();
 
         }
-        public Order GetOrder(int id)
+        public Order GetOrderById(int id)
         {
-            return _OrderRepository.Get(id);
+            return _OrderRepository.GetById(id);
         }
         public Order PostOrder(Order order)
         {
-            return _OrdrRepository.Post(order);
+            return _OrderRepository.Post(order);
         }
         public Order PutOrder(int id, Order order)
         {
-            return _OrdrRepository.Put(id, order);
+            return _OrderRepository.Put(id, order);
         }
         public void DeleteOrder(int id)
         {

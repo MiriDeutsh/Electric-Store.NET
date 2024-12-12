@@ -9,9 +9,9 @@ namespace Project.Core.Services
 {
     public interface IProductService
     {
-        public List<Product> GetAllProduct();
+        public IEnumerable<Product> GetAllProduct();
 
-        public Product GetProduct(Product product);
+        public Product GetProductById(int id);
 
         public Product PostProduct(Product product);
 
